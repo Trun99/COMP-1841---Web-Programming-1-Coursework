@@ -1,0 +1,354 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f3f4f6;
+    color: #2d3748;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  
+  header {
+    background-color: #f48024;
+    padding: 20px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: center;
+  }
+  
+  header h1 {
+    color: white;
+    font-size: 2rem;
+  }
+  
+  nav {
+    background-color: #2d3748;
+    padding: 0.5em 0;
+  }
+  nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+    flex-wrap: wrap;         
+    max-width: 1000px;
+  }
+  
+  nav li {
+    margin: 0 0.5em;
+    white-space: nowrap;    
+  }
+  
+
+  nav a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5em 1em;
+  }
+  
+  nav a:hover {
+    background-color: #4a5568;
+    border-radius: 4px;
+  }
+  
+  main {
+    max-width: 1000px;
+    margin: 2em auto;
+    padding: 1em;
+  }
+  
+  footer {
+    text-align: center;
+    padding: 1em;
+    background-color: #fefcbf;
+    font-size: 0.9em;
+    border-top: 1px solid #e2e8f0;
+  }
+  
+  form {
+    background-color: white;
+    padding: 1.5em;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    margin-bottom: 2em;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 0.5em;
+    font-weight: bold;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="file"],
+  select,
+  textarea {
+    width: 100%;
+    padding: 0.75em;
+    margin-bottom: 1.5em;
+    border: 1px solid #cbd5e0;
+    border-radius: 4px;
+    font-size: 1em;
+  }
+  
+  input[type="submit"] {
+    background-color: #38a169;
+    color: white;
+    border: none;
+    padding: 0.75em 1.5em;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #2f855a;
+  }
+  
+  blockquote {
+    background-color: white;
+    border-left: 4px solid #f48024;
+    padding: 1em;
+    margin-bottom: 2em;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  }
+  
+  blockquote p {
+    margin-bottom: 0.5em;
+  }
+  
+  blockquote img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 1em;
+    border-radius: 4px;
+  }
+  
+  blockquote form {
+    margin-top: 1em;
+  }
+
+  .ask-toggle {
+    background-color: #f48024;
+    border-radius: 20px;
+    padding: 1em 1.5em;
+    width: 100%;
+    max-width: 1000px;
+    margin: 1em auto;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    cursor: pointer;
+    font-weight: bold;
+    color: white;
+    transition: background-color 0.2s ease;
+    text-align: center;
+  }
+  
+  .ask-toggle:hover {
+    background-color: #e26704;
+  }
+  
+  .ask-form {
+    display: none;
+    background-color: #fff8f2;
+    border-radius: 20px;
+    padding: 2em;
+    max-width: 1000px;
+    margin: 1em auto;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+  
+  .ask-form label {
+    display: block;
+    margin-bottom: 0.5em;
+    font-weight: bold;
+  }
+  
+  .ask-form input,
+  .ask-form textarea,
+  .ask-form select {
+    width: 100%;
+    padding: 0.75em;
+    margin-bottom: 1.2em;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+  
+  .ask-form input[type="submit"] {
+    background-color: #f48024;
+    color: white;
+    border: none;
+    padding: 0.75em 2em;
+    border-radius: 8px;
+    font-size: 1em;
+    cursor: pointer;
+  }
+  
+  .ask-form input[type="submit"]:hover {
+    background-color: #e26704;
+  }  
+  
+  .errors {
+    background-color: #fed7d7;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    padding: 1em;
+    border-radius: 4px;
+    margin-bottom: 1em;
+  }
+  
+  .currentpage::before {
+    content: "[";
+  }
+  
+  .currentpage::after {
+    content: "]";
+  }
+  
+  .question-actions {
+    display: flex;
+    gap: 1em;
+    margin-top: 1em;
+    align-items: center;
+  }
+  
+  .edit-button,
+  .delete-button {
+    padding: 0.6em 1.5em;
+    border: none;
+    border-radius: 6px;
+    font-size: 1em;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+    display: inline-block;
+  }
+  
+  .edit-button {
+    background-color: #38a169;
+  }
+  
+  .edit-button:hover {
+    background-color: #2f855a;
+  }
+  
+  .delete-button {
+    background-color: #38a169;
+  }
+  
+  .delete-button:hover {
+    background-color: #2f855a;
+  }
+  
+  .delete-form {
+    margin: 0;
+    padding: 0;
+    background: none;
+    box-shadow: none;
+    display: inline;
+  }
+  
+  .auth-links {
+    text-align: right;
+    margin: 1em 2em 0 0;
+  }
+  
+  .auth-links a {
+    text-decoration: none;
+    margin-left: 1em;
+    font-weight: bold;
+    color: #f48024;
+  }
+  
+  .auth-links a:hover {
+    text-decoration: underline;
+  }
+  
+  .login-box {
+    max-width: 500px;
+    margin: 2em auto;
+    padding: 2em;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .login-box label {
+    display: block;
+    margin-top: 1em;
+    font-weight: bold;
+    color: #2d3748;
+  }
+  
+  .login-box input[type="email"],
+  .login-box input[type="password"] {
+    width: 100%;
+    padding: 0.75em;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-top: 0.25em;
+  }
+  
+  .login-box input[type="submit"] {
+    background-color: #38a169;
+    color: white;
+    border: none;
+    padding: 0.75em 1.5em;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 1.5em;
+  }
+  
+  .login-box input[type="submit"]:hover {
+    background-color: #2f855a;
+  }
+  
+  .register-box {
+    max-width: 500px;
+    margin: 2em auto;
+    padding: 2em;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .register-box label {
+    display: block;
+    margin-top: 1em;
+    font-weight: bold;
+    color: #2d3748;
+  }
+  
+  .register-box input[type="text"],
+  .register-box input[type="email"],
+  .register-box input[type="password"] {
+    width: 100%;
+    padding: 0.75em;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-top: 0.25em;
+  }
+  
+  .register-box input[type="submit"] {
+    background-color: #38a169;
+    color: white;
+    border: none;
+    padding: 0.75em 1.5em;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 1.5em;
+  }
+  
+  .register-box input[type="submit"]:hover {
+    background-color: #2f855a;
+  }
+  
