@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 22, 2025 at 06:08 PM
+-- Generation Time: May 06, 2025 at 09:43 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -51,7 +51,7 @@ CREATE TABLE `modules` (
 --
 
 INSERT INTO `modules` (`id`, `name`) VALUES
-(23, 'English Level 5 - Learning Skills.');
+(20, 'ád');
 
 -- --------------------------------------------------------
 
@@ -69,6 +69,13 @@ CREATE TABLE `questions` (
   `module_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `questions`
+--
+
+INSERT INTO `questions` (`id`, `title`, `content`, `image_path`, `date_posted`, `user_id`, `module_id`) VALUES
+(43, 'ád', 'ád', 'uploads/1746507073_7fPYo.png', '2025-05-06 11:51:13', 38, 20);
+
 -- --------------------------------------------------------
 
 --
@@ -81,7 +88,7 @@ CREATE TABLE `users` (
   `email` varchar(255) DEFAULT NULL,
   `password` varchar(255) NOT NULL,
   `hashed_password` varchar(255) DEFAULT NULL,
-  `role` varchar(255) NOT NULL DEFAULT 'user'
+  `role` enum('admin','user') DEFAULT 'user'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -89,9 +96,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `hashed_password`, `role`) VALUES
-(37, 'ogjz', 'ngthtrungogjz@gmail.com', '', '$2y$10$nbgtvhxOLXD2SzeO.HveKO7wTt/CtpWYche9SuAsGb9IMV8bp7wFS', 'admin'),
-(38, 'thanhdatvo.4805@gmail.com', 'thanhdatvo.4805@gmail.com', '', '$2y$10$pdvr.e/ycOopC2uT12ySMOCG998nfFiV3xhonncSgdCT1jSbIMcea', 'admin'),
-(39, 'ogjz', 'thanhdatvo.4805@gmail.com', '', '$2y$10$0opq/NuWrlcghwX2zHy6NOphqxXk.2ar0gHw2X/ikkRrE.gj6bDc6', 'user');
+(38, 'Admin1', 'hoangtuan@gmail.com', '', '$2y$10$d01YoiW59x/w/aknZg49YeC2IHYa7XdLNXcXq.P90AAtLjks6idKK', 'admin');
 
 --
 -- Indexes for dumped tables
@@ -137,13 +142,13 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT for table `modules`
 --
 ALTER TABLE `modules`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `questions`
 --
 ALTER TABLE `questions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -159,8 +164,8 @@ ALTER TABLE `users`
 -- Constraints for table `questions`
 --
 ALTER TABLE `questions`
-  ADD CONSTRAINT `questions_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
-  ADD CONSTRAINT `questions_ibfk_2` FOREIGN KEY (`module_id`) REFERENCES `modules` (`id`);
+  ADD CONSTRAINT `questions_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `questions_ibfk_2` FOREIGN KEY (`module_id`) REFERENCES `modules` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
