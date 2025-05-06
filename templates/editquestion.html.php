@@ -10,7 +10,7 @@
   <input type="file" name="image" id="image" accept="image/*">
   <?php if (!empty($question['image_path'])): ?>
     <p>Current Image:</p>
-    <img src="/coursework1841/<?= htmlspecialchars($question['image_path']) ?>" style="max-width: 300px; border-radius: 8px;">
+    <img src="/CW_PHPupdate/<?= htmlspecialchars($question['image_path']) ?>" style="max-width: 300px; border-radius: 8px;">
   <?php endif; ?>
 
   <label for="module_id">Module:</label>
